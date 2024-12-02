@@ -53,6 +53,21 @@ const searchForm = ref({
 
 // SaTable 基础配置
 const options = reactive({
+  import: {
+    // 导入url
+    url: '/gx/UsersInfo/import',
+    templateUrl: '/gx/UsersInfo/downloadTemplate',
+    auth: ['/gx/UsersInfo/import'],
+    text: '导入',
+    show: true
+  },
+  export: {
+    url: '/gx/UsersInfo/export',
+    auth: ['/gx/UsersInfo/export'],
+    text: '导出',
+    show: true
+  },
+
   api: api.getPageList,
 
   recycleApi: api.getRecyclePageList,
@@ -119,6 +134,7 @@ const columns = reactive([
 ])
 
 const buildDepartmentMap = (data) => {
+  console.log('buildepartementMAP:',data)
   data.forEach((department) => {
     departmentMap[department.id] = department;
     if (department.children) {
@@ -130,6 +146,8 @@ const buildDepartmentMap = (data) => {
 // 根据部门ID获取部门名称的函数
 const getDepartmentNameById = (id) => {
   const department = departmentMap[id];
+  console.info('getDepartmentNameById',department)
+  console.log('departmentMap-id',departmentMap[id])
   return department ? department.label : '未知部门';
 };
 
@@ -137,6 +155,7 @@ const getDepartmentNameById = (id) => {
 const initPage = async () => {
   const departmentData = await commonApi.commonGet('/core/dept/index?tree=true&filter=false')
   buildDepartmentMap(departmentData.data)
+  console.table(departmentData.data)
 }
 
 // SaTable 数据请求

@@ -129,8 +129,8 @@ export default {
       url,
       method: 'post',
       data,
-      timeout: 30 * 1000
-      // headers: { 'Content-Type': 'multipart/form-data' },
+      timeout: 30 * 1000,
+      headers: { 'Content-Type': 'multipart/form-data' },
     })
   },
 

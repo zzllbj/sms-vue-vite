@@ -14,7 +14,7 @@
             <a-divider v-if="!singleLine" style="height: 84px" direction="vertical" />
             <a-col :flex="singleLine ? '185px' : '80px'" :style="{ textAlign: 'right' }">
               <a-space :direction="!singleLine ? 'vertical' : 'horizontal'" :size="singleLine ? 10 : 20">
-                <a-button type="primary" @click="search">
+                <a-button type="outline" @click="search">
                   <template #icon>
                     <icon-search />
                   </template>
@@ -37,7 +37,7 @@
           <a-col :span="16">
             <a-space>
               <slot name="tableBeforeButtons"></slot>
-              <a-button type="primary" v-if="options.add.show" v-auth="options.add.auth || []" @click="addAction">
+              <a-button type="outline" v-if="options.add.show" v-auth="options.add.auth || []" @click="addAction">
                 <template #icon> <icon-plus /> </template> {{ options.add.text || '新增' }}
               </a-button>
               <a-popconfirm
@@ -45,7 +45,7 @@
                 position="bottom"
                 @ok="deletesMultipleAction"
                 v-if="!isRecovery && options.delete.show && options.rowSelection">
-                <a-button type="primary" status="danger" v-auth="options.delete.auth || []">
+                <a-button type="outline" status="danger" v-auth="options.delete.auth || []">
                   <template #icon> <icon-delete /> </template> {{ options.delete.text || '删除' }}
                 </a-button>
               </a-popconfirm>
@@ -54,7 +54,7 @@
                 position="bottom"
                 @ok="deletesMultipleAction"
                 v-if="isRecovery && options.delete.show && options.rowSelection">
-                <a-button type="primary" status="danger" v-auth="options.delete.realAuth || []">
+                <a-button type="outline" status="danger" v-auth="options.delete.realAuth || []">
                   <template #icon> <icon-delete /> </template> {{ options.delete.realText || '销毁' }}
                 </a-button>
               </a-popconfirm>
@@ -63,14 +63,14 @@
                 position="bottom"
                 @ok="recoverysMultipleAction"
                 v-if="options.recovery.show && isRecovery && options.rowSelection">
-                <a-button type="primary" status="success" v-auth="options.recovery.auth || []">
+                <a-button type="outline" status="success" v-auth="options.recovery.auth || []">
                   <template #icon><icon-undo /></template> {{ options.recovery.text || '恢复' }}
                 </a-button>
               </a-popconfirm>
-              <a-button v-if="options.import.show" v-auth="options.import.auth || []" @click="importAction">
+              <a-button type="outline" v-if="options.import.show" v-auth="options.import.auth || []" @click="importAction">
                 <template #icon> <icon-upload /> </template> {{ options.import.text || '导入' }}
               </a-button>
-              <a-button v-if="options.export.show" :loading="isExport" v-auth="options.export.auth || []" @click="exportAction">
+              <a-button type="outline" v-if="options.export.show" :loading="isExport" v-auth="options.export.auth || []" @click="exportAction">
                 <template #icon> <icon-download /> </template> {{ options.export.text || '导出' }}
               </a-button>
               <a-button type="secondary" @click="handlerExpand" v-if="options.isExpand">
@@ -87,17 +87,17 @@
             <a-space v-if="options.showTools">
               <slot name="tools"></slot>
               <a-tooltip :content="isRecovery ? '显示正常数据' : '显示回收站数据'" v-if="options.recycleApi && isFunction(options.recycleApi)">
-                <a-button shape="circle" @click="switchDataType"><icon-swap /></a-button>
+                <a-button type="outline" shape="circle" @click="switchDataType"><icon-swap /></a-button>
               </a-tooltip>
               <a-tooltip content="刷新表格" @click="refresh">
-                <a-button shape="circle"><icon-refresh /></a-button>
+                <a-button type="outline" shape="circle"><icon-refresh /></a-button>
               </a-tooltip>
               <a-tooltip content="显隐搜索">
-                <a-button shape="circle" @click="searchChange"><icon-search /> </a-button>
+                <a-button type="outline" shape="circle" @click="searchChange"><icon-search /> </a-button>
               </a-tooltip>
               <a-tooltip content="排序" v-if="options.showSort">
                 <a-popover trigger="click" position="br">
-                  <a-button shape="circle"><icon-sort /></a-button>
+                  <a-button type="outline" shape="circle"><icon-sort /></a-button>
                   <template #content>
                     <div id="tableSetting">
                       <div v-for="(item, index) in columns" :key="item.dataIndex" class="setting">

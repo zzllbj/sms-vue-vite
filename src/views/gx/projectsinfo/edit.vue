@@ -11,9 +11,6 @@
       <a-form-item label="课题名称" field="name">
         <a-input v-model="formData.name" placeholder="请输入课题名称" />
       </a-form-item>
-      <a-form-item label="录入人员" field="input_user">
-        <a-input v-model="formData.input_user" placeholder="请输入录入人员" />
-      </a-form-item>
       <a-form-item label="开始时间" field="start_date">
         <a-date-picker v-model="formData.start_date" :show-time="false" mode="date" placeholder="请选择开始时间" />
       </a-form-item>
@@ -44,6 +41,9 @@
             万元
           </template>
         </a-input-number>
+      </a-form-item>
+      <a-form-item label="录入人员" field="input_user">
+        <a-input v-model="formData.input_user" placeholder="请输入录入人员" />
       </a-form-item>
       <a-form-item label="附件" field="attachment">
         <sa-upload-file v-model="formData.attachment" :limit="3" :multiple="false" />

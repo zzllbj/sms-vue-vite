@@ -36,6 +36,20 @@ const searchForm = ref({
 
 // SaTable 基础配置
 const options = reactive({
+  import: {
+    // 导入url
+    url: '/gx/ProjectsInfo/import',
+    templateUrl: '/gx/ProjectsInfo/downloadTemplate',
+    auth: ['/gx/ProjectsInfo/import'],
+    text: '导入',
+    show: true
+  },
+  export: {
+    url: '/gx/ProjectsInfo/export',
+    auth: ['/gx/ProjectsInfo/export'],
+    text: '导出',
+    show: true
+  },
   api: api.getPageList,
   recycleApi: api.getRecyclePageList,
   rowSelection: { showCheckedAll: true },
@@ -98,7 +112,7 @@ const columns = reactive([
   { title: '合作模式', dataIndex: 'cooperate_mode', dict: 'cooperate', width: 80 },
   { title: '步骤节点', dataIndex: 'step', dict: 'lifecycle', width: 100 },
   { title: '单位信息', dataIndex: 'company', width: 180 },
-  { title: '预算金额', dataIndex: 'amount', width: 80, align: 'right' },
+  { title: '预算金额', dataIndex: 'amount', width: 100, align: 'right' },
   { title: '附件', dataIndex: 'attachment', width: 180 },
 ])
 
