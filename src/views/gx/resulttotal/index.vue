@@ -8,6 +8,21 @@
             <a-input v-model="searchForm.name" placeholder="请输入成果名称" />
           </a-form-item>
         </a-col>
+        <a-col :span="8">
+          <a-form-item label="成果类型" field="class">
+            <sa-select v-model="searchForm.class" dict="results_type" placeholder="请选择成果类型" allow-clear />
+          </a-form-item>
+        </a-col>
+        <a-col :span="8">
+          <a-form-item label="登记号" field="registration_code">
+            <a-input v-model="searchForm.registration_code" placeholder="请输入登记号" />
+          </a-form-item>
+        </a-col>
+        <a-col :span="8">
+          <a-form-item label="授权人" field="licensor_user">
+            <a-input v-model="searchForm.licensor_user" placeholder="请输入授权人" />
+          </a-form-item>
+        </a-col>
       </template>
 
       <!-- Table 自定义渲染 -->
@@ -31,6 +46,9 @@ const editRef = ref()
 // 搜索表单
 const searchForm = ref({
   name: '',
+  class: '',
+  registration_code: '',
+  licensor_user: '',
 })
 
 
@@ -97,7 +115,7 @@ const columns = reactive([
   { title: '申请日期', dataIndex: 'apply_date', width: 180 },
   { title: '公告日期', dataIndex: 'public_date', width: 180 },
   { title: '公告号', dataIndex: 'public_number', width: 180 },
-  { title: '状态', dataIndex: 'status', dict: 'project_status', width: 120 },
+  { title: '状态', dataIndex: 'status', dict: 'data_status', width: 120 },
   { title: '附件图片', dataIndex: 'attachment', width: 180 },
 ])
 

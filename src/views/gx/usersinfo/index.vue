@@ -122,9 +122,9 @@ const options = reactive({
 // SaTable 列配置
 const columns = reactive([
   { title: '姓名', dataIndex: 'name', width: 80, align: 'center' },
-  { title: '性别', dataIndex: 'sex', dict: 'sex', width: 50, align: 'center' },
+  { title: '性别', dataIndex: 'sex', dict: 'sex', width: 60, align: 'center' },
   { title: '年龄', dataIndex: 'age', width: 60, align: 'center' },
-  { title: '电话', dataIndex: 'tel', width: 100, align: 'center' },
+  { title: '电话', dataIndex: 'tel', width: 110, align: 'center' },
   { title: '证书', dataIndex: 'cert', width: 180, align: 'right' },
   { title: '专业', dataIndex: 'professional', dict: 'profession', width: 120, align: 'left' },
   { title: '职称', dataIndex: 'jobtitle', dict: 'occupation', width: 80, align: 'center' },
@@ -134,7 +134,6 @@ const columns = reactive([
 ])
 
 const buildDepartmentMap = (data) => {
-  console.log('buildepartementMAP:',data)
   data.forEach((department) => {
     departmentMap[department.id] = department;
     if (department.children) {
@@ -146,8 +145,6 @@ const buildDepartmentMap = (data) => {
 // 根据部门ID获取部门名称的函数
 const getDepartmentNameById = (id) => {
   const department = departmentMap[id];
-  console.info('getDepartmentNameById',department)
-  console.log('departmentMap-id',departmentMap[id])
   return department ? department.label : '未知部门';
 };
 
@@ -155,7 +152,7 @@ const getDepartmentNameById = (id) => {
 const initPage = async () => {
   const departmentData = await commonApi.commonGet('/core/dept/index?tree=true&filter=false')
   buildDepartmentMap(departmentData.data)
-  console.table(departmentData.data)
+  console.log(departmentData.data)
 }
 
 // SaTable 数据请求

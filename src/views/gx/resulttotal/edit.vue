@@ -38,7 +38,7 @@
         <a-input v-model="formData.public_number" placeholder="请输入公告号" />
       </a-form-item>
       <a-form-item label="状态" field="status">
-        <sa-select v-model="formData.status" dict="project_status" placeholder="请选择状态" allow-clear />
+        <sa-select v-model="formData.status" dict="data_status" placeholder="请选择状态" allow-clear />
       </a-form-item>
       <a-form-item label="附件图片" field="attachment">
         <sa-upload-file v-model="formData.attachment" :limit="3" :multiple="false" />

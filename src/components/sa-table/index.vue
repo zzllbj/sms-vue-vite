@@ -20,7 +20,7 @@
                   </template>
                   {{ options.searchText || '搜索' }}
                 </a-button>
-                <a-button @click="resetSearch">
+                <a-button type="outline" @click="resetSearch">
                   <template #icon>
                     <icon-refresh />
                   </template>
@@ -603,7 +603,7 @@ const refresh = async () => {
   await requestData()
   tableRef.value?.selectAll(false)
 }
-
+// 刷新表格
 const requestData = async () => {
   loading.value = true
   init()

@@ -4,9 +4,9 @@ export default {
   // 主键名称
   pk: 'id',
   // 请求api方法
-  api: () => {},
+  api: () => { },
   // 请求回收站api方法
-  recycleApi: () => {},
+  recycleApi: () => { },
   // 设置分页组件每页记录数
   pageSizeOption: [10, 20, 30, 50, 100],
   // 设置选择列
@@ -126,7 +126,7 @@ export default {
   // 索引列名称
   indexLabel: '序号',
   // 索引列宽度
-  indexColumnWidth: 50,
+  indexColumnWidth: 60,
   // 索引列固定方向，false 为不固定
   indexColumnFixed: '',
   // 对齐方向

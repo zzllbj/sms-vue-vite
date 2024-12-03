@@ -12,11 +12,11 @@
       </template>
       <!-- 表格操作按钮扩展 -->
       <template #tableBeforeButtons>
-        <a-button @click="operate('optimize')" type="primary" status="success" v-auth="['/core/dataMaintain/optimize']">
+        <a-button @click="operate('optimize')" type="outline" status="success" v-auth="['/core/dataMaintain/optimize']">
           <template #icon><icon-tool /></template>优化表
         </a-button>
 
-        <a-button @click="operate('clear')" type="primary" status="success" v-auth="['/core/dataMaintain/fragment']">
+        <a-button @click="operate('clear')" type="outline" status="success" v-auth="['/core/dataMaintain/fragment']">
           <template #icon><icon-experiment /></template>清理碎片
         </a-button>
       </template>

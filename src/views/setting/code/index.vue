@@ -1,6 +1,7 @@
 <template>
   <div class="ma-content-block">
-    <sa-table ref="crudRef" :options="options" :columns="columns" :searchForm="searchForm" @selection-change="selectionChange">
+    <sa-table ref="crudRef" :options="options" :columns="columns" :searchForm="searchForm"
+      @selection-change="selectionChange">
       <!-- 搜索表单 start -->
       <template #tableSearch>
         <a-col :span="8">
@@ -103,7 +104,7 @@ const generateCode = async (ids) => {
     ids: ids.toString().split(','),
   })
   if (response) {
-    tool.download(response, 'saiadmin.zip')
+    tool.download(response, 'NewCodes.zip')
     Message.success('代码生成成功，开始下载')
   } else {
     Message.error('文件下载失败')
@@ -122,7 +123,7 @@ const generateFile = async (id) => {
 
 const batchGenerate = () => {
   if (selections.value.length === 0) {
-    Message.error('至少要选择一条数据')
+    Message.error('请选择数据')
     return
   }
   generateCode(selections.value.join(','))
