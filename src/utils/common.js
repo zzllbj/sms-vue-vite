@@ -23,14 +23,14 @@ export const refreshTag = () => {
 }
 
 export const addTag = (tag) => {
-  const tagStore  = useTagStore()
+  const tagStore = useTagStore()
   const keepStore = useKeepAliveStore()
   tagStore.addTag(tag)
   keepStore.addKeepAlive(tag)
 }
 
 export const closeTag = (tag) => {
-  const tagStore  = useTagStore()
+  const tagStore = useTagStore()
   const keepStore = useKeepAliveStore()
   const t = tagStore.removeTag(tag)
   keepStore.removeKeepAlive(tag)
@@ -60,7 +60,7 @@ export const copy = (text) => {
   try {
     useClipboard().toClipboard(text)
     Message.success('已成功复制到剪切板')
-  } catch(e) {
+  } catch (e) {
     Message.error('复制失败')
   }
 }
@@ -199,40 +199,40 @@ export const formatJson = (jsonObj, callback) => {
 
 // 判断是否弹出层全屏
 export const setModalSizeEvent = (callback) => {
-  callback({isFull: window.screen.width < 768, width: window.screen.width})
+  callback({ isFull: window.screen.width < 768, width: window.screen.width })
 }
 // 加载远程js
-export const loadScript = (src, callback) => {  
+export const loadScript = (src, callback) => {
   const s = document.createElement('script')
   s.type = 'text/javascript'
   s.src = src
-  s.onload = s.onreadystatechange = function () {  
-    if ( !this.readyState || this.readyState === 'loaded' || this.readyState === 'complete' ) {  
+  s.onload = s.onreadystatechange = function () {
+    if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete') {
       callback && callback()
-      s.onload = s.onreadystatechange = null 
+      s.onload = s.onreadystatechange = null
     }
   }
   document.body.appendChild(s)
 }
 
 // 加载远程css
-export const loadCss = (href, callback) => {  
+export const loadCss = (href, callback) => {
   const s = document.createElement('link')
   s.type = 'text/css'
   s.rel = 'stylesheet'
   s.media = 'all'
   s.href = href
-  s.onload = s.onreadystatechange = function () {  
-    if ( !this.readyState || this.readyState === 'loaded' || this.readyState === 'complete' ) {  
+  s.onload = s.onreadystatechange = function () {
+    if (!this.readyState || this.readyState === 'loaded' || this.readyState === 'complete') {
       callback && callback()
       s.onload = s.onreadystatechange = null
-    }  
+    }
   }
   document.body.appendChild(s)
 }
 
 export const discount = (discount, price) => {
-  return (price * ( (discount === '0.00' || discount === 0) ? 10 : discount ) / 10).toFixed(2)
+  return (price * ((discount === '0.00' || discount === 0) ? 10 : discount) / 10).toFixed(2)
 }
 
 

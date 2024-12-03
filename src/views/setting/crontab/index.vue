@@ -129,7 +129,7 @@ const columns = reactive([
   { title: '创建时间', dataIndex: 'create_time', width: 180 },
 ])
 
-const initPage = async () => {}
+const initPage = async () => { }
 
 const refresh = async () => {
   crudRef.value?.refresh()

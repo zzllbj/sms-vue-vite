@@ -1,7 +1,8 @@
 <template>
   <div class="ma-content-block lg:flex justify-between">
     <!-- CRUD 组件 -->
-    <sa-table ref="crudRef" :options="options" :columns="columns" :searchForm="searchForm" @selectionChange="selectChange">
+    <sa-table ref="crudRef" :options="options" :columns="columns" :searchForm="searchForm"
+      @selectionChange="selectChange">
       <!-- 搜索区 tableSearch -->
       <template #tableSearch>
         <a-col :span="12">
@@ -28,15 +29,11 @@
 
     <a-modal v-model:visible="visible" width="900px" :footer="false">
       <template #title>表结构数据</template>
-      <sa-table
-        ref="tableRef"
-        :options="tableCrud"
-        :searchForm="tableForm"
-        :columns="[
-          { title: '字段名称', dataIndex: 'column_name' },
-          { title: '字段类型', dataIndex: 'column_type' },
-          { title: '字段注释', dataIndex: 'column_comment' },
-        ]" />
+      <sa-table ref="tableRef" :options="tableCrud" :searchForm="tableForm" :columns="[
+        { title: '字段名称', dataIndex: 'column_name' },
+        { title: '字段类型', dataIndex: 'column_type' },
+        { title: '字段注释', dataIndex: 'column_comment' },
+      ]" />
     </a-modal>
   </div>
 </template>
@@ -114,7 +111,7 @@ const tableCrud = reactive({
 })
 
 // 页面数据初始化
-const initPage = async () => {}
+const initPage = async () => { }
 
 // SaTable 数据请求
 const refresh = async () => {

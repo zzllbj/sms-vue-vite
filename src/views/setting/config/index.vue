@@ -47,10 +47,7 @@
             <template v-for="(item, index) in formArray">
               <a-form-item :label="item.name" :field="item.key" :extra="item.remark" v-show="item.display">
                 <template v-if="item.input_type === 'select'">
-                  <a-select
-                    v-model="item.value"
-                    :options="item.config_select_data"
-                    @change="handleSelect($event, item)"
+                  <a-select v-model="item.value" :options="item.config_select_data" @change="handleSelect($event, item)"
                     :placeholder="'请选择' + item.name" />
                 </template>
                 <template v-if="item.input_type === 'input'">

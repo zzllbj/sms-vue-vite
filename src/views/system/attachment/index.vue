@@ -1,14 +1,8 @@
 <template>
   <div class="ma-content-block lg:flex justify-between">
     <div class="w-full p-4 pr-4 border-r border-gray-100 lg:w-2/12">
-      <sa-tree-slider
-        :data="sliderData"
-        :border="false"
-        search-placeholder="搜索资源类型"
-        :field-names="{ title: 'label', key: 'value' }"
-        @click="handlerClick"
-        icon="icon-folder"
-        v-model="defaultKey" />
+      <sa-tree-slider :data="sliderData" :border="false" search-placeholder="搜索资源类型"
+        :field-names="{ title: 'label', key: 'value' }" @click="handlerClick" icon="icon-folder" v-model="defaultKey" />
     </div>
 
     <div class="lg:w-10/12 w-full">
@@ -47,7 +41,8 @@
         <!-- 工具按钮扩展 -->
         <template #tools>
           <a-tooltip :content="mode === 'list' ? '切换橱窗模式' : '切换列表模式'">
-            <a-button shape="circle" @click="switchMode"><icon-apps v-if="mode === 'list'" /><icon-list v-else /></a-button>
+            <a-button shape="circle" @click="switchMode"><icon-apps v-if="mode === 'list'" /><icon-list
+                v-else /></a-button>
           </a-tooltip>
         </template>
         <!-- 自定义内容 -->
@@ -62,11 +57,7 @@
                         <a-tag :checked="checked" color="blue" checkable><icon-check /> 选择</a-tag>
                       </template>
                     </a-checkbox>
-                    <a-image
-                      width="190"
-                      height="190"
-                      show-loader
-                      :title="record.origin_name"
+                    <a-image width="190" height="190" show-loader :title="record.origin_name"
                       :description="`大小：${record.size_info}`"
                       :src="/image/g.test(record.mime_type) ? tool.attachUrl(record.url) : $url + 'not-image.png'">
                       <template #extra>
@@ -94,7 +85,8 @@
         </template>
         <!-- 自定义table渲染 -->
         <template #url="{ record }">
-          <a-image class="list-image" v-if="/image/g.test(record.mime_type)" width="40px" height="40px" :src="tool.attachUrl(record.url)" />
+          <a-image class="list-image" v-if="/image/g.test(record.mime_type)" width="40px" height="40px"
+            :src="tool.attachUrl(record.url)" />
           <a-avatar v-else shape="square" style="top: 0px">{{ record.suffix }}</a-avatar>
         </template>
         <!-- 操作列前置扩展 -->
@@ -272,18 +264,23 @@ export default { name: 'system:attachment' }
   object-fit: contain;
   background-color: var(--color-fill-4);
 }
+
 :deep(.arco-image-with-footer-inner .arco-image-footer) {
   padding: 9px;
 }
+
 :deep(.arco-image-footer-caption-title) {
   font-size: 14px;
 }
+
 :deep(.arco-image-footer-extra) {
   position: relative;
 }
+
 :deep(.arco-avatar-square) {
   top: -6px;
 }
+
 .window-list {
   display: flex;
   width: 100%;
@@ -291,19 +288,23 @@ export default { name: 'system:attachment' }
   flex-direction: row;
   align-content: center;
 }
+
 .image-content {
   position: relative;
 }
+
 .image-content .checkbox {
   position: absolute;
   z-index: 10;
   right: -16px;
   color: #fff;
 }
+
 :deep(.arco-tag-checkable) {
   color: #fff;
   background: rgba(0, 0, 0, 0.5);
 }
+
 /* :deep(.arco-tag-checkable:hover) {
   color: #555;
 } */
@@ -314,6 +315,7 @@ export default { name: 'system:attachment' }
   right: 9px;
   bottom: -24px;
 }
+
 .action {
   padding: 5px 4px;
   font-size: 14px;
@@ -322,6 +324,7 @@ export default { name: 'system:attachment' }
   line-height: 1;
   cursor: pointer;
 }
+
 .action:first-child {
   margin-left: 0;
 }

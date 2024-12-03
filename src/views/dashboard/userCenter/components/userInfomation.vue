@@ -22,24 +22,24 @@
 </template>
 
 <script setup>
-  import { reactive } from 'vue'
-  import { useUserStore } from '@/store'
-  import { Message } from '@arco-design/web-vue'
-  import user from '@/api/system/user'
+import { reactive } from 'vue'
+import { useUserStore } from '@/store'
+import { Message } from '@arco-design/web-vue'
+import user from '@/api/system/user'
 
-  const userStore = useUserStore()
+const userStore = useUserStore()
 
-  const userInfo = reactive({
-    ...userStore.user
-  })
+const userInfo = reactive({
+  ...userStore.user
+})
 
-  const modifyInfo = async (data) => {
-    data.values.avatar = userStore.user.avatar
-    const response = await user.updateInfo(data.values)
-    if (response.code === 200) {
-      Message.success(response.message)
-      userStore.user = data.values
-      return
-    }
+const modifyInfo = async (data) => {
+  data.values.avatar = userStore.user.avatar
+  const response = await user.updateInfo(data.values)
+  if (response.code === 200) {
+    Message.success(response.message)
+    userStore.user = data.values
+    return
   }
+}
 </script>

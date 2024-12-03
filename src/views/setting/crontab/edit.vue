@@ -1,13 +1,6 @@
 <template>
-  <component
-    is="a-modal"
-    v-model:visible="visible"
-    :width="600"
-    :title="title"
-    :mask-closable="false"
-    :ok-loading="loading"
-    @cancel="close"
-    @before-ok="submit">
+  <component is="a-modal" v-model:visible="visible" :width="600" :title="title" :mask-closable="false"
+    :ok-loading="loading" @cancel="close" @before-ok="submit">
     <!-- 表单信息 start -->
     <a-form ref="formRef" :model="formData" :rules="rules" :auto-label-width="true">
       <a-form-item label="任务名称" field="name">
@@ -88,7 +81,7 @@ const open = async (type = 'add') => {
 }
 
 // 初始化页面数据
-const initPage = async () => {}
+const initPage = async () => { }
 
 // 设置数据
 const setFormData = async (data) => {

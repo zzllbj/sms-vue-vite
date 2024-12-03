@@ -4,7 +4,8 @@
     <a-alert class="mb-3" closable>
       1、支持thinkorm配置多数据源； 2、数据源建议配置表前缀，假设前缀为[eb_]，载入表[eb_shop_category]会自动处理为[ShopCategory]类
     </a-alert>
-    <sa-table ref="crudRef" :options="options" :columns="columns" :searchForm="searchForm" @selection-change="handlerSelection">
+    <sa-table ref="crudRef" :options="options" :columns="columns" :searchForm="searchForm"
+      @selection-change="handlerSelection">
       <!-- 搜索表单 start -->
       <template #tableSearch>
         <a-col :span="8">

@@ -1,18 +1,17 @@
 // 打印类属性、方法定义
 /* eslint-disable */
 
-class Print
-{
+class Print {
   dom = null
 
   options = {}
 
-  constructor (dom, options = {}) {
+  constructor(dom, options = {}) {
     // if (!(this instanceof Print)) return new Print(dom, options)
 
     this.options = this.extend({ 'noPrint': '.no-print' }, options)
 
-    if ( typeof dom === 'string' ) {
+    if (typeof dom === 'string') {
       try {
         this.dom = document.querySelector(dom)
       } catch {
@@ -27,18 +26,18 @@ class Print
     this.init()
   }
 
-  init () {
+  init() {
     this.writeIframe(this.getStyle() + this.getHtml())
   }
 
-  extend (obj, obj2) {
+  extend(obj, obj2) {
     for (let key in obj2) {
       obj[key] = obj2[key]
     }
     return obj
   }
 
-  getStyle () {
+  getStyle() {
     let str = '', styles = document.querySelectorAll('style,link')
     for (let i = 0; i < styles.length; i++) {
       str += styles[i].outerHTML
@@ -48,7 +47,7 @@ class Print
     return str
   }
 
-  getHtml () {
+  getHtml() {
     const inputs = document.querySelectorAll('input');
     const textAreas = document.querySelectorAll('textarea');
     const selects = document.querySelectorAll('select');
@@ -91,7 +90,7 @@ class Print
     return this.dom.outerHTML
   }
 
-  writeIframe (content) {
+  writeIframe(content) {
     let w, doc, iframe = document.createElement('iframe'), f = document.body.appendChild(iframe)
     iframe.id = 'myIframe'
     iframe.setAttribute('style', 'position:absolute; width:0; height:0; top:-10px; left:-10px;')
@@ -107,12 +106,12 @@ class Print
     }
   }
 
-  toPrint (frameWindow) {
+  toPrint(frameWindow) {
     try {
       setTimeout(() => {
         frameWindow.focus()
         try {
-          if (! frameWindow.document.execCommand('print', false, null)) {
+          if (!frameWindow.document.execCommand('print', false, null)) {
             frameWindow.print()
           }
         } catch (e) {
@@ -125,7 +124,7 @@ class Print
     }
   }
 
-  isDOM (obj) {
+  isDOM(obj) {
     return (typeof HTMLElement === 'object')
       ? obj instanceof HTMLElement
       : obj && typeof obj === 'object' && obj.nodeType === 1 && typeof obj.nodeName === 'string'

@@ -15,21 +15,13 @@
                 </a-form-item>
               </a-col>
               <a-col :span="8">
-                <a-form-item
-                  label="表描述"
-                  field="table_comment"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
-                  :rules="[{ required: true, message: '表描述必填' }]">
+                <a-form-item label="表描述" field="table_comment" label-col-flex="auto"
+                  :label-col-style="{ width: '100px' }" :rules="[{ required: true, message: '表描述必填' }]">
                   <a-input v-model="form.table_comment" />
                 </a-form-item>
               </a-col>
               <a-col :span="8">
-                <a-form-item
-                  label="实体类"
-                  field="class_name"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
+                <a-form-item label="实体类" field="class_name" label-col-flex="auto" :label-col-style="{ width: '100px' }"
                   :rules="[{ required: true, message: '实体类必填' }]">
                   <a-input v-model="form.class_name" />
                 </a-form-item>
@@ -38,12 +30,8 @@
 
             <a-row :gutter="24">
               <a-col :span="8">
-                <a-form-item
-                  label="业务名称"
-                  field="business_name"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
-                  :rules="[{ required: true, message: '实体别名必填' }]">
+                <a-form-item label="业务名称" field="business_name" label-col-flex="auto"
+                  :label-col-style="{ width: '100px' }" :rules="[{ required: true, message: '实体别名必填' }]">
                   <a-input v-model="form.business_name" />
                 </a-form-item>
               </a-col>
@@ -63,42 +51,22 @@
 
             <a-row :gutter="24">
               <a-col :xs="24" :md="8" :xl="8">
-                <a-form-item
-                  label="应用类型"
-                  field="template"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
-                  :rules="[{ required: true, message: '应用类型必选' }]"
-                  extra="默认app模板,生成文件放app目录下">
-                  <a-select
-                    style="width: 100%"
-                    v-model="form.template"
-                    :options="[
-                      { label: 'webman应用[app]', value: 'app' },
-                      { label: 'webman插件[plugin]', value: 'plugin' },
-                    ]"
-                    allow-clear
-                    allow-search
-                    placeholder="请选择生成模板" />
+                <a-form-item label="应用类型" field="template" label-col-flex="auto" :label-col-style="{ width: '100px' }"
+                  :rules="[{ required: true, message: '应用类型必选' }]" extra="默认app模板,生成文件放app目录下">
+                  <a-select style="width: 100%" v-model="form.template" :options="[
+                    { label: 'webman应用[app]', value: 'app' },
+                    { label: 'webman插件[plugin]', value: 'plugin' },
+                  ]" allow-clear allow-search placeholder="请选择生成模板" />
                 </a-form-item>
               </a-col>
               <a-col :xs="24" :md="8" :xl="8">
-                <a-form-item
-                  label="应用名称"
-                  field="namespace"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
-                  :rules="[{ required: true, message: '应用名称必填' }]"
-                  extra="plugin插件名称, 或者app下应用名称, 禁止使用saiadmin">
+                <a-form-item label="应用名称" field="namespace" label-col-flex="auto" :label-col-style="{ width: '100px' }"
+                  :rules="[{ required: true, message: '应用名称必填' }]" extra="plugin插件名称, 或者app下应用名称, 禁止使用saiadmin">
                   <a-input v-model="form.namespace" />
                 </a-form-item>
               </a-col>
               <a-col :xs="24" :md="8" :xl="8">
-                <a-form-item
-                  label="包名"
-                  field="package_name"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
+                <a-form-item label="包名" field="package_name" label-col-flex="auto" :label-col-style="{ width: '100px' }"
                   extra="指定控制器文件所在控制器目录的二级目录名，如：system">
                   <a-input allow-clear v-model="form.package_name" placeholder="请输入包名" />
                 </a-form-item>
@@ -106,11 +74,7 @@
             </a-row>
             <a-row :gutter="24">
               <a-col :xs="24" :md="8" :xl="8">
-                <a-form-item
-                  label="生成模板"
-                  field="stub"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
+                <a-form-item label="生成模板" field="stub" label-col-flex="auto" :label-col-style="{ width: '100px' }"
                   extra="ApiDoc会生成ApiDoc注释的接口文档">
                   <a-radio-group v-model="form.stub">
                     <a-radio value="saiadmin">默认</a-radio>
@@ -119,12 +83,8 @@
                 </a-form-item>
               </a-col>
               <a-col :xs="24" :md="8" :xl="8">
-                <a-form-item
-                  label="生成方式"
-                  field="generate_type"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
-                  extra="生成到项目仅调试模式有效，自动生成到前后端目录，自动处理菜单生成">
+                <a-form-item label="生成方式" field="generate_type" label-col-flex="auto"
+                  :label-col-style="{ width: '100px' }" extra="生成到项目仅调试模式有效，自动生成到前后端目录，自动处理菜单生成">
                   <a-radio-group v-model="form.generate_type">
                     <a-radio :value="1">压缩包下载</a-radio>
                     <a-radio :value="2">生成到项目</a-radio>
@@ -132,12 +92,8 @@
                 </a-form-item>
               </a-col>
               <a-col :xs="24" :md="8" :xl="8" v-if="form.generate_type == 2">
-                <a-form-item
-                  label="生成路径"
-                  field="generate_path"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
-                  :rules="[{ required: true, message: '生成路径必填' }]"
+                <a-form-item label="生成路径" field="generate_path" label-col-flex="auto"
+                  :label-col-style="{ width: '100px' }" :rules="[{ required: true, message: '生成路径必填' }]"
                   extra="前端根目录文件夹名称，必须与后端根目录同级">
                   <a-input v-model="form.generate_path" />
                 </a-form-item>
@@ -145,31 +101,17 @@
             </a-row>
             <a-row :gutter="24">
               <a-col :xs="24" :md="8" :xl="8">
-                <a-form-item
-                  label="生成类型"
-                  field="tpl_category"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
-                  extra="单表须有主键，树表须指定id、parent_id、name等字段">
-                  <a-select
-                    style="width: 100%"
-                    v-model="form.tpl_category"
-                    :options="[
-                      { label: '单表CRUD', value: 'single' },
-                      { label: '树表CRUD', value: 'tree' },
-                    ]"
-                    allow-clear
-                    allow-search
-                    placeholder="请选择所属模块" />
+                <a-form-item label="生成类型" field="tpl_category" label-col-flex="auto"
+                  :label-col-style="{ width: '100px' }" extra="单表须有主键，树表须指定id、parent_id、name等字段">
+                  <a-select style="width: 100%" v-model="form.tpl_category" :options="[
+                    { label: '单表CRUD', value: 'single' },
+                    { label: '树表CRUD', value: 'tree' },
+                  ]" allow-clear allow-search placeholder="请选择所属模块" />
                 </a-form-item>
               </a-col>
               <a-col :xs="24" :md="8" :xl="8">
-                <a-form-item
-                  label="模型类型"
-                  field="generate_model"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
-                  extra="根据不同选择生成不同的模型">
+                <a-form-item label="模型类型" field="generate_model" label-col-flex="auto"
+                  :label-col-style="{ width: '100px' }" extra="根据不同选择生成不同的模型">
                   <a-radio-group v-model="form.generate_model">
                     <a-radio :value="1">软删除</a-radio>
                     <a-radio :value="2">非软删除</a-radio>
@@ -179,43 +121,23 @@
             </a-row>
             <a-row :gutter="24">
               <a-col :xs="24" :md="8" :xl="8">
-                <a-form-item
-                  label="所属菜单"
-                  field="belong_menu_id"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
-                  extra="分配业务功能在哪个菜单，例如：权限管理。不选择则为顶级菜单">
-                  <a-cascader
-                    v-model="form.belong_menu_id"
-                    :options="menus"
-                    expand-trigger="hover"
-                    :style="{ width: '100%' }"
-                    placeholder="生成功能所属菜单"
-                    allow-search
-                    allow-clear
-                    check-strictly />
+                <a-form-item label="所属菜单" field="belong_menu_id" label-col-flex="auto"
+                  :label-col-style="{ width: '100px' }" extra="分配业务功能在哪个菜单，例如：权限管理。不选择则为顶级菜单">
+                  <a-cascader v-model="form.belong_menu_id" :options="menus" expand-trigger="hover"
+                    :style="{ width: '100%' }" placeholder="生成功能所属菜单" allow-search allow-clear check-strictly />
                 </a-form-item>
               </a-col>
               <a-col :xs="24" :md="8" :xl="8">
-                <a-form-item
-                  label="菜单名称"
-                  field="menu_name"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
-                  :rules="[{ required: true, message: '菜单名称必选' }]"
-                  extra="显示在左侧菜单上的名称、以及以及代码中的业务名称">
+                <a-form-item label="菜单名称" field="menu_name" label-col-flex="auto" :label-col-style="{ width: '100px' }"
+                  :rules="[{ required: true, message: '菜单名称必选' }]" extra="显示在左侧菜单上的名称、以及以及代码中的业务名称">
                   <a-input allow-clear v-model="form.menu_name" placeholder="请输入菜单名称" />
                 </a-form-item>
               </a-col>
             </a-row>
             <a-row :gutter="24">
               <a-col :span="8">
-                <a-form-item
-                  label="表单样式"
-                  field="component_type"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
-                  extra="设置新增和修改组件显示方式">
+                <a-form-item label="表单样式" field="component_type" label-col-flex="auto"
+                  :label-col-style="{ width: '100px' }" extra="设置新增和修改组件显示方式">
                   <a-radio-group v-model="form.component_type" type="button">
                     <a-radio :value="1">模态框</a-radio>
                     <a-radio :value="2">抽屉</a-radio>
@@ -223,17 +145,14 @@
                 </a-form-item>
               </a-col>
               <a-col :span="8">
-                <a-form-item
-                  label="表单宽度"
-                  field="form_width"
-                  label-col-flex="auto"
-                  :label-col-style="{ width: '100px' }"
+                <a-form-item label="表单宽度" field="form_width" label-col-flex="auto" :label-col-style="{ width: '100px' }"
                   extra="表单组件的宽度，单位为px">
                   <a-input-number v-model="form.form_width" :min="200" :max="10000" />
                 </a-form-item>
               </a-col>
               <a-col :span="8">
-                <a-form-item label="表单全屏" field="is_full" label-col-flex="auto" :label-col-style="{ width: '100px' }" extra="编辑表单是否全屏">
+                <a-form-item label="表单全屏" field="is_full" label-col-flex="auto" :label-col-style="{ width: '100px' }"
+                  extra="编辑表单是否全屏">
                   <a-radio-group v-model="form.is_full">
                     <a-radio :value="1">否</a-radio>
                     <a-radio :value="2">是</a-radio>
@@ -245,19 +164,12 @@
               <a-divider orientation="left">树表配置</a-divider>
               <a-row :gutter="24">
                 <a-col :xs="24" :md="8" :xl="8">
-                  <a-form-item
-                    label="树主ID"
-                    field="tree_id"
-                    label-col-flex="auto"
-                    :label-col-style="{ width: '100px' }"
+                  <a-form-item label="树主ID" field="tree_id" label-col-flex="auto" :label-col-style="{ width: '100px' }"
                     extra="指定树表的主要ID，一般为主键">
-                    <a-select style="width: 100%" v-model="formOptions.tree_id" allow-clear allow-search placeholder="请选择树表的主ID">
-                      <a-option
-                        class="w-full"
-                        v-for="(item, index) in form.columns"
-                        :label="item.column_name + ' - ' + item.column_comment"
-                        :value="item.column_name"
-                        :key="index">
+                    <a-select style="width: 100%" v-model="formOptions.tree_id" allow-clear allow-search
+                      placeholder="请选择树表的主ID">
+                      <a-option class="w-full" v-for="(item, index) in form.columns"
+                        :label="item.column_name + ' - ' + item.column_comment" :value="item.column_name" :key="index">
                         <div class="flex justify-between w-full">
                           <span>{{ item.column_name }}</span>
                           <span>{{ item.column_comment }}</span>
@@ -267,19 +179,12 @@
                   </a-form-item>
                 </a-col>
                 <a-col :xs="24" :md="8" :xl="8">
-                  <a-form-item
-                    label="树父ID"
-                    field="tree_parent_id"
-                    label-col-flex="auto"
-                    :label-col-style="{ width: '100px' }"
-                    extra="指定树表的父ID，比如：parent_id">
-                    <a-select style="width: 100%" v-model="formOptions.tree_parent_id" allow-clear allow-search placeholder="请选择树表的父ID">
-                      <a-option
-                        class="w-full"
-                        v-for="(item, index) in form.columns"
-                        :label="item.column_name + ' - ' + item.column_comment"
-                        :value="item.column_name"
-                        :key="index">
+                  <a-form-item label="树父ID" field="tree_parent_id" label-col-flex="auto"
+                    :label-col-style="{ width: '100px' }" extra="指定树表的父ID，比如：parent_id">
+                    <a-select style="width: 100%" v-model="formOptions.tree_parent_id" allow-clear allow-search
+                      placeholder="请选择树表的父ID">
+                      <a-option class="w-full" v-for="(item, index) in form.columns"
+                        :label="item.column_name + ' - ' + item.column_comment" :value="item.column_name" :key="index">
                         <div class="flex justify-between w-full">
                           <span>{{ item.column_name }}</span>
                           <span>{{ item.column_comment }}</span>
@@ -289,19 +194,12 @@
                   </a-form-item>
                 </a-col>
                 <a-col :xs="24" :md="8" :xl="8">
-                  <a-form-item
-                    label="树名称"
-                    field="tree_name"
-                    label-col-flex="auto"
-                    :label-col-style="{ width: '100px' }"
+                  <a-form-item label="树名称" field="tree_name" label-col-flex="auto" :label-col-style="{ width: '100px' }"
                     extra="指定树显示的名称字段，比如：name">
-                    <a-select style="width: 100%" v-model="formOptions.tree_name" allow-clear allow-search placeholder="请选择树表的主ID">
-                      <a-option
-                        class="w-full"
-                        v-for="(item, index) in form.columns"
-                        :label="item.column_name + ' - ' + item.column_comment"
-                        :value="item.column_name"
-                        :key="index">
+                    <a-select style="width: 100%" v-model="formOptions.tree_name" allow-clear allow-search
+                      placeholder="请选择树表的主ID">
+                      <a-option class="w-full" v-for="(item, index) in form.columns"
+                        :label="item.column_name + ' - ' + item.column_comment" :value="item.column_name" :key="index">
                         <div class="flex justify-between w-full">
                           <span>{{ item.column_name }}</span>
                           <span>{{ item.column_comment }}</span>
@@ -326,69 +224,63 @@
                 </a-table-column>
                 <a-table-column dataIndex="column_name" title="字段名称" :width="150" tooltip></a-table-column>
                 <a-table-column dataIndex="column_comment" title="字段描述" :width="160">
-                  <template #cell="{ rowIndex }"><a-input v-model="form.columns[rowIndex].column_comment" allow-clear /></template>
+                  <template #cell="{ rowIndex }"><a-input v-model="form.columns[rowIndex].column_comment"
+                      allow-clear /></template>
                 </a-table-column>
                 <a-table-column dataIndex="column_type" title="物理类型" :width="100"></a-table-column>
                 <a-table-column dataIndex="is_required" title="必填" :width="60">
-                  <template #title
-                    >必填
-                    <a-tooltip content="全选 / 全不选" position="bottom"><a-checkbox @change="handlerAll($event, 'required')" /></a-tooltip>
+                  <template #title>必填
+                    <a-tooltip content="全选 / 全不选" position="bottom"><a-checkbox
+                        @change="handlerAll($event, 'required')" /></a-tooltip>
                   </template>
                   <template #cell="{ rowIndex }"><a-checkbox v-model="form.columns[rowIndex].is_required" /></template>
                 </a-table-column>
                 <a-table-column dataIndex="is_insert" title="插入" :width="60">
-                  <template #title
-                    >表单
-                    <a-tooltip content="全选 / 全不选" position="bottom"><a-checkbox @change="handlerAll($event, 'insert')" /></a-tooltip>
+                  <template #title>表单
+                    <a-tooltip content="全选 / 全不选" position="bottom"><a-checkbox
+                        @change="handlerAll($event, 'insert')" /></a-tooltip>
                   </template>
                   <template #cell="{ rowIndex }"><a-checkbox v-model="form.columns[rowIndex].is_insert" /></template>
                 </a-table-column>
                 <a-table-column dataIndex="is_list" title="列表" :width="60">
-                  <template #title
-                    >列表
-                    <a-tooltip content="全选 / 全不选" position="bottom"><a-checkbox @change="handlerAll($event, 'list')" /></a-tooltip>
+                  <template #title>列表
+                    <a-tooltip content="全选 / 全不选" position="bottom"><a-checkbox
+                        @change="handlerAll($event, 'list')" /></a-tooltip>
                   </template>
                   <template #cell="{ rowIndex }"><a-checkbox v-model="form.columns[rowIndex].is_list" /></template>
                 </a-table-column>
                 <a-table-column dataIndex="is_query" title="查询" :width="60">
-                  <template #title
-                    >查询
-                    <a-tooltip content="全选 / 全不选" position="bottom"><a-checkbox @change="handlerAll($event, 'query')" /></a-tooltip>
+                  <template #title>查询
+                    <a-tooltip content="全选 / 全不选" position="bottom"><a-checkbox
+                        @change="handlerAll($event, 'query')" /></a-tooltip>
                   </template>
                   <template #cell="{ rowIndex }"><a-checkbox v-model="form.columns[rowIndex].is_query" /></template>
                 </a-table-column>
                 <a-table-column dataIndex="is_sort" title="排序" :width="60">
-                  <template #title
-                    >排序
-                    <a-tooltip content="全选 / 全不选" position="bottom"><a-checkbox @change="handlerAll($event, 'sort')" /></a-tooltip>
+                  <template #title>排序
+                    <a-tooltip content="全选 / 全不选" position="bottom"><a-checkbox
+                        @change="handlerAll($event, 'sort')" /></a-tooltip>
                   </template>
                   <template #cell="{ rowIndex }"><a-checkbox v-model="form.columns[rowIndex].is_sort" /></template>
                 </a-table-column>
                 <a-table-column dataIndex="query_type" title="查询方式" :width="150">
-                  <template #cell="{ rowIndex }"
-                    ><a-select v-model="form.columns[rowIndex].query_type" :options="vars.queryType" allow-clear></a-select
-                  ></template>
+                  <template #cell="{ rowIndex }"><a-select v-model="form.columns[rowIndex].query_type"
+                      :options="vars.queryType" allow-clear></a-select></template>
                 </a-table-column>
                 <a-table-column dataIndex="view_type" title="页面控件" :width="220">
                   <template #cell="{ record, rowIndex }">
                     <a-space>
-                      <a-select
-                        v-model="form.columns[rowIndex].view_type"
-                        :style="{ width: '140px' }"
-                        :options="vars.viewComponent"
-                        allow-clear></a-select>
-                      <a-link v-if="notNeedSettingComponents.includes(record.view_type)" @click="settingComponentRef.open(record)">设置</a-link>
+                      <a-select v-model="form.columns[rowIndex].view_type" :style="{ width: '140px' }"
+                        :options="vars.viewComponent" allow-clear></a-select>
+                      <a-link v-if="notNeedSettingComponents.includes(record.view_type)"
+                        @click="settingComponentRef.open(record)">设置</a-link>
                     </a-space>
                   </template>
                 </a-table-column>
                 <a-table-column dataIndex="dict_type" title="数据字典" :width="160">
                   <template #cell="{ record, rowIndex }">
-                    <a-select
-                      v-model="form.columns[rowIndex].dict_type"
-                      :options="dicts"
-                      allow-clear
-                      :field-names="{ label: 'name', value: 'code' }"
-                      placeholder="选择数据字典"
+                    <a-select v-model="form.columns[rowIndex].dict_type" :options="dicts" allow-clear
+                      :field-names="{ label: 'name', value: 'code' }" placeholder="选择数据字典"
                       :disabled="!['saSelect', 'radio', 'checkbox'].includes(record.view_type)"></a-select>
                   </template>
                 </a-table-column>
@@ -399,7 +291,8 @@
             <a-alert title="提示">
               默认接口根据模型类型为<a-tag color="red">软删除</a-tag>或者<a-tag color="red">非软删除</a-tag>自动判断，可选接口根据是否选中进行生成
             </a-alert>
-            <a-checkbox-group direction="vertical" v-model="form.generate_menus" class="mt-3" :default-value="form.generate_menus">
+            <a-checkbox-group direction="vertical" v-model="form.generate_menus" class="mt-3"
+              :default-value="form.generate_menus">
               <a-checkbox :value="menu.value" v-for="(menu, index) in vars.menuList" :key="index">
                 {{ menu.name + '　-　' + menu.comment }}
               </a-checkbox>
@@ -415,18 +308,16 @@
               </a-divider>
               <a-row :gutter="24">
                 <a-col :xs="24" :md="12" :xl="12">
-                  <a-form-item label="关联类型" field="type" label-col-flex="auto" :label-col-style="{ width: '100px' }" extra="指定关联类型">
+                  <a-form-item label="关联类型" field="type" label-col-flex="auto" :label-col-style="{ width: '100px' }"
+                    extra="指定关联类型">
                     <a-select v-model="item.type" allow-clear allow-search placeholder="请选择关联类型">
-                      <a-option v-for="types in vars.realtionsType" :key="types.value" :value="types.value" :label="types.name" />
+                      <a-option v-for="types in vars.realtionsType" :key="types.value" :value="types.value"
+                        :label="types.name" />
                     </a-select>
                   </a-form-item>
                 </a-col>
                 <a-col :xs="24" :md="12" :xl="12">
-                  <a-form-item
-                    label="关联名称"
-                    field="name"
-                    label-col-flex="auto"
-                    :label-col-style="{ width: '100px' }"
+                  <a-form-item label="关联名称" field="name" label-col-flex="auto" :label-col-style="{ width: '100px' }"
                     extra="设置关联名称，且是代码中调用的名称">
                     <a-input v-model="item.name" allow-clear placeholder="设置关联名称" />
                   </a-form-item>
@@ -434,16 +325,15 @@
               </a-row>
               <a-row :gutter="24">
                 <a-col :xs="24" :md="12" :xl="12">
-                  <a-form-item label="关联模型" field="model" label-col-flex="auto" :label-col-style="{ width: '100px' }" extra="选择要关联的模型">
+                  <a-form-item label="关联模型" field="model" label-col-flex="auto" :label-col-style="{ width: '100px' }"
+                    extra="选择要关联的模型">
                     <a-input v-model="item.model" allow-clear placeholder="设置关联模型" />
                   </a-form-item>
                 </a-col>
                 <a-col :xs="24" :md="12" :xl="12">
                   <a-form-item
                     :label="item.type === 'belongsTo' ? '外键' : item.type === 'belongsToMany' ? '外键' : '当前模型主键'"
-                    field="localKey"
-                    label-col-flex="auto"
-                    :label-col-style="{ width: '100px' }"
+                    field="localKey" label-col-flex="auto" :label-col-style="{ width: '100px' }"
                     :extra="item.type === 'belongsTo' ? '关联模型_id' : item.type === 'belongsToMany' ? '关联模型_id' : '当前模型主键'">
                     <a-input v-model="item.localKey" allow-clear placeholder="设置键名" />
                   </a-form-item>
@@ -451,21 +341,14 @@
               </a-row>
               <a-row :gutter="24">
                 <a-col :xs="24" :md="12" :xl="12" v-show="item.type === 'belongsToMany'">
-                  <a-form-item
-                    label="中间模型"
-                    field="model"
-                    label-col-flex="auto"
-                    :label-col-style="{ width: '100px' }"
+                  <a-form-item label="中间模型" field="model" label-col-flex="auto" :label-col-style="{ width: '100px' }"
                     extra="多对多关联的中间模型">
                     <a-input v-model="item.table" allow-clear placeholder="请输入中间模型" />
                   </a-form-item>
                 </a-col>
                 <a-col :xs="24" :md="12" :xl="12">
-                  <a-form-item
-                    :label="item.type === 'belongsTo' ? '关联主键' : '外键'"
-                    field="foreignKey"
-                    label-col-flex="auto"
-                    :label-col-style="{ width: '100px' }"
+                  <a-form-item :label="item.type === 'belongsTo' ? '关联主键' : '外键'" field="foreignKey"
+                    label-col-flex="auto" :label-col-style="{ width: '100px' }"
                     :extra="item.type === 'belongsTo' ? '关联模型主键' : '当前模型_id'">
                     <a-input style="width: 100%" v-model="item.foreignKey" allow-clear placeholder="设置键名" />
                   </a-form-item>

@@ -16,13 +16,8 @@
             <a-radio :value="false">否</a-radio>
           </a-radio-group>
         </a-form-item>
-        <a-form-item
-          v-if="form.multiple"
-          label="数量限制"
-          field="limit"
-          label-col-flex="auto"
-          :label-col-style="{ width: '100px' }"
-          :extra="`多选模式下生效,限制上传数量`">
+        <a-form-item v-if="form.multiple" label="数量限制" field="limit" label-col-flex="auto"
+          :label-col-style="{ width: '100px' }" :extra="`多选模式下生效,限制上传数量`">
           <a-input-number v-model="form.limit" :max="10" :min="1" />
         </a-form-item>
       </div>
@@ -47,13 +42,8 @@
       </div>
       <!-- 日期、时间选择器 -->
       <div v-if="['date'].includes(row.view_type)">
-        <a-form-item
-          class="mt-3"
-          label="选择器类型"
-          field="formType"
-          label-col-flex="auto"
-          :label-col-style="{ width: '120px' }"
-          v-if="row.view_type == 'date'">
+        <a-form-item class="mt-3" label="选择器类型" field="formType" label-col-flex="auto"
+          :label-col-style="{ width: '120px' }" v-if="row.view_type == 'date'">
           <a-select v-model="form.mode" allow-clear>
             <a-option value="date">日期选择器</a-option>
             <a-option value="week">周选择器</a-option>
@@ -63,13 +53,8 @@
           </a-select>
         </a-form-item>
 
-        <a-form-item
-          class="mt-3"
-          label="是否显示时间"
-          field="showTime"
-          label-col-flex="auto"
-          :label-col-style="{ width: '120px' }"
-          v-if="form.mode == 'date'">
+        <a-form-item class="mt-3" label="是否显示时间" field="showTime" label-col-flex="auto"
+          :label-col-style="{ width: '120px' }" v-if="form.mode == 'date'">
           <a-radio-group v-model="form.showTime">
             <a-radio :value="true">是</a-radio>
             <a-radio :value="false">否</a-radio>
