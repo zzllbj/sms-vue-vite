@@ -5,7 +5,7 @@
       <template #tableSearch>
         <a-col :span="8">
           <a-form-item label="课题名称" field="name_id">
-            <a-select v-model="searchForm.name_id" :options="[]" placeholder="请选择课题名称" allow-clear />
+            <a-select v-model="searchForm.name_id" :options="projectnames" placeholder="请选择课题名称" allow-clear />
           </a-form-item>
         </a-col>
       </template>
