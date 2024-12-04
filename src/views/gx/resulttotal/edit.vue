@@ -1,13 +1,6 @@
 <template>
-  <component
-    is="a-modal"
-    v-model:visible="visible"
-    :width="600"
-    :title="title"
-    :mask-closable="false"
-    :ok-loading="loading"
-    @cancel="close"
-    @before-ok="submit">
+  <component is="a-modal" v-model:visible="visible" :width="600" :title="title" :mask-closable="false"
+    :ok-loading="loading" @cancel="close" @before-ok="submit">
     <!-- 表单信息 start -->
     <a-form ref="formRef" :model="formData" :rules="rules" :auto-label-width="true">
       <a-form-item label="成果名称" field="name">
@@ -16,6 +9,13 @@
       <a-form-item label="成果类型" field="class">
         <sa-select v-model="formData.class" dict="results_type" placeholder="请选择成果类型" allow-clear />
       </a-form-item>
+
+      <a-tabs>
+        <a-tab-pane key="1" title="成果类型">
+          Content of Tab Panel 1
+        </a-tab-pane>
+      </a-tabs>
+
       <a-form-item label="发明人" field="invention_user">
         <a-input v-model="formData.invention_user" placeholder="请输入发明人" />
       </a-form-item>
@@ -94,7 +94,9 @@ const open = async (type = 'add') => {
 }
 
 // 初始化页面数据
-const initPage = async () => {}
+const initPage = async () => { 
+  console.log(results_type)
+}
 
 // 设置数据
 const setFormData = async (data) => {
