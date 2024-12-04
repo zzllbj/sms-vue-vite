@@ -10,21 +10,28 @@
         <sa-select v-model="formData.class" dict="results_type" placeholder="请选择成果类型" allow-clear />
       </a-form-item>
 
-      <a-tabs>
-        <a-tab-pane key="1" title="成果类型">
-          Content of Tab Panel 1
+      <a-tabs v-model="activeTab" :animated="true">
+        <a-tab-pane v-for="(tabOption, index) in activeTab" :key="index" :title="tabOption.label"
+          :name="tabOption.value">
+          <div>{{ tabOption.value }}</div>
         </a-tab-pane>
       </a-tabs>
-
-      <a-form-item label="发明人" field="invention_user">
-        <a-input v-model="formData.invention_user" placeholder="请输入发明人" />
-      </a-form-item>
-      <a-form-item label="专利号" field="patent_number">
-        <a-input v-model="formData.patent_number" placeholder="请输入专利号" />
-      </a-form-item>
-      <a-form-item label="登记号" field="registration_code">
-        <a-input v-model="formData.registration_code" placeholder="请输入登记号" />
-      </a-form-item>
+      
+      <div v-if="activeTab === '1'">
+        <a-form-item label="发明人" field="invention_user">
+          <a-input v-model="formData.invention_user" placeholder="请输入发明人" />
+        </a-form-item>
+      </div>
+      <div v-if="activeTab === '2'">
+        <a-form-item label="专利号" field="patent_number">
+          <a-input v-model="formData.patent_number" placeholder="请输入专利号" />
+        </a-form-item>
+      </div>
+      <div v-if="activeTab === '3'">
+        <a-form-item label="登记号" field="registration_code">
+          <a-input v-model="formData.registration_code" placeholder="请输入登记号" />
+        </a-form-item>
+      </div>
       <a-form-item label="授权人" field="licensor_user">
         <a-input v-model="formData.licensor_user" placeholder="请输入授权人" />
       </a-form-item>
@@ -52,6 +59,7 @@
 import { ref, reactive, computed } from 'vue'
 import { Message, Modal } from '@arco-design/web-vue'
 import api from '../api/resulttotal'
+import commAPI from '@/api/common'
 
 const emit = defineEmits(['success'])
 // 引用定义
@@ -59,6 +67,7 @@ const visible = ref(false)
 const loading = ref(false)
 const formRef = ref()
 const mode = ref('')
+const activeTab = ref('');
 
 let title = computed(() => {
   return '成果管理' + (mode.value == 'add' ? '-新增' : '-编辑')
@@ -94,8 +103,12 @@ const open = async (type = 'add') => {
 }
 
 // 初始化页面数据
-const initPage = async () => { 
-  console.log(results_type)
+const initPage = async () => {
+  const dicts = await commAPI.getDict('results_type')
+  activeTab.value = dicts.data
+  console.log(activeTab.value)
+
+
 }
 
 // 设置数据
