@@ -152,7 +152,6 @@ const getDepartmentNameById = (id) => {
 const initPage = async () => {
   const departmentData = await commonApi.commonGet('/core/dept/index?tree=true&filter=false')
   buildDepartmentMap(departmentData.data)
-  console.log(departmentData.data)
 }
 
 // SaTable 数据请求

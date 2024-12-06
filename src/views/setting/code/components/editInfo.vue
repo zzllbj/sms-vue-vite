@@ -133,6 +133,12 @@
                   <a-input allow-clear v-model="form.menu_name" placeholder="请输入菜单名称" />
                 </a-form-item>
               </a-col>
+              <a-col :span="8">
+                <a-form-item label="缓存开关" field="is_redis" label-col-flex="auto" :label-col-style="{ width: '100px' }"
+                  extra="是否打开Redis缓存,默认为打开">
+                  <a-switch v-model="form.is_redis" checked-value="1" unchecked-value="0" default-checked="1" />
+                </a-form-item>
+              </a-col>
             </a-row>
             <a-row :gutter="24">
               <a-col :span="8">

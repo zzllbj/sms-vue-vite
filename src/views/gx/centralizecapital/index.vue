@@ -98,7 +98,7 @@ const columns = reactive([
   { title: '人员费/元', dataIndex: 'user_fee', width: 90, align: 'right' },
   { title: '材料费/元', dataIndex: 'material_fee', width: 90, align: 'right' },
   { title: '其它费/元', dataIndex: 'other_fee', width: 90, align: 'right' },
-  { title: '审核状态', dataIndex: 'audit_status', dict: 'audit_status', width: 60, align: 'center' },
+  { title: '审核状态', dataIndex: 'audit_status', dict: 'audit_status', width: 70, align: 'center' },
   { title: '记录人', dataIndex: 'record_user', width: 80, align: 'center' },
 ])
 

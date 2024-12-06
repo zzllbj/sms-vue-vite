@@ -101,7 +101,7 @@ export default {
 	},
 
 	/**
-	 * 更改岗位状态
+	 * 更改状态
 	 * @returns
 	 */
 	changeStatus(data = {}) {
